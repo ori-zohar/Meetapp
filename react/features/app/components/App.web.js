@@ -1,9 +1,11 @@
 // @flow
 
 import { AtlasKitThemeProvider } from '@atlaskit/theme';
+import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 
 import { DialogContainer } from '../../base/dialog';
+import { BaseTheme } from '../../base/themes';
 import { ChromeExtensionBanner } from '../../chrome-extension-banner';
 
 import { AbstractApp } from './AbstractApp';
@@ -26,10 +28,12 @@ export class App extends AbstractApp {
      */
     _createMainElement(component, props) {
         return (
-            <AtlasKitThemeProvider mode = 'dark'>
-                <ChromeExtensionBanner />
-                { super._createMainElement(component, props) }
-            </AtlasKitThemeProvider>
+            <ThemeProvider theme = { BaseTheme }>
+                <AtlasKitThemeProvider mode = 'dark'>
+                    <ChromeExtensionBanner />
+                    { super._createMainElement(component, props) }
+                </AtlasKitThemeProvider>
+            </ThemeProvider>
         );
     }
 
