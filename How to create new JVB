@@ -1,0 +1,18 @@
+How to create new jvb
+
+1. Create new folder   
+2. Copy .env to the directory 
+3. Change 3 parameters in the .env file:
+	a. JVB_PORT=10000
+	b. JVB_TCP_PORT=4443
+	c. JVB_TCP_MAPPED_PORT=4443
+4. Create unique docker-compose file that containes only JVB and set external network
+5. Register the JVB in the Prosody configuration ( prosody/rootfs/etc/cont-init.d/10-config )  prosodyctl --config $PROSODY_CFG register JVB(JVB_NUMBER) $XMPP_AUTH_DOMAIN $JVB_AUTH_PASSWORD
+6. Restart all of the conteiners
+
+FINITO 
+
+
+
+note :
+In the future we wil create pipline to create JVB 
